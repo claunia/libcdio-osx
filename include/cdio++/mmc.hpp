@@ -153,14 +153,19 @@ void mmcAudioGetVolume (mmc_audio_volume_t *p_volume)
 }
 
 /**
-  Report if CD-ROM has a praticular kind of interface (ATAPI, SCSCI, ...)
-  Is it possible for an interface to have serveral? If not this 
-  routine could probably return the single mmc_feature_interface_t.
-  @return true if we have the interface and false if not.
-*/
-bool_3way_t mmcHaveInterface( cdio_mmc_feature_interface_t e_interface ) 
+ Return interface of device.
+ As per MMC6, Table 94, Note 7, in the case of a two-interface
+ scheme (USB-ATAPI bridge) the drive may not be aware, so only
+ ATAPI is returned.
+ Also it seems there is no way for the drive to return more than
+ one interface at all.
+ On MMC1 devices, where it is not specified, we will return
+ interface as CDIO_MMC_FEATURE_INTERFACE_UNSPECIFIED.
+ @return interface of the device.
+ */
+cdio_mmc_feature_interface_t mmcGetInterface() 
 {
-  return mmc_have_interface( p_cdio, e_interface );
+  return mmc_get_interface( p_cdio );
 }
 
 /**

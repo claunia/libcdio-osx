@@ -971,17 +971,18 @@ mmc_run_cmd_len( const CdIo_t *p_cdio, unsigned int i_timeout_ms,
 }
 
 /**
-  See if CD-ROM has feature with value value
-  @return true if we have the feature and false if not.
+  Returns device's interface
+  @return interface of the device.
 */
-bool_3way_t
-mmc_have_interface( CdIo_t *p_cdio, cdio_mmc_feature_interface_t e_interface )
+cdio_mmc_feature_interface_t
+mmc_get_interface( CdIo_t *p_cdio )
 {
   int i_status;                  /* Result of MMC command */
   uint8_t buf[500] = { 0, };     /* Place to hold returned data */
   mmc_cdb_t cdb = {{0, }};  /* Command Descriptor Buffer */
 
-  if (!p_cdio || !p_cdio->op.run_mmc_cmd) return nope;
+  if (!p_cdio || !p_cdio->op.run_mmc_cmd)
+    return CDIO_MMC_FEATURE_INTERFACE_UNSPECIFIED;
   
   CDIO_MMC_SET_COMMAND(cdb.field, CDIO_MMC_GPCMD_GET_CONFIGURATION);
   CDIO_MMC_SET_READ_LENGTH8(cdb.field, sizeof(buf));
@@ -1007,13 +1008,13 @@ mmc_have_interface( CdIo_t *p_cdio, cdio_mmc_feature_interface_t e_interface )
       if (CDIO_MMC_FEATURE_CORE == i_feature) {
         uint8_t *q = p+4;
         uint32_t i_interface_standard = CDIO_MMC_GET_LEN32(q);
-        if (e_interface == i_interface_standard) return yep;
+        return i_interface_standard;
       }
       p += i_feature_additional + 4;
     }
-    return nope;
-  } else 
-    return dunno;
+    return CDIO_MMC_FEATURE_INTERFACE_UNSPECIFIED;
+  } else // If we can't get the interface, it is unspecified
+    return CDIO_MMC_FEATURE_INTERFACE_UNSPECIFIED;
 }
 
 /**

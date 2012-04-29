@@ -833,11 +833,14 @@ cdio_get_media_changed(CdIo_t *p_cdio)
 bool_3way_t
 cdio_have_atapi(CdIo_t *p_cdio)
 {
-  bool_3way_t i_status;
+  cdio_mmc_feature_interface_t i_interface;
 
   if (!p_cdio) return nope;
-  i_status = mmc_have_interface(p_cdio, CDIO_MMC_FEATURE_INTERFACE_ATAPI);
-  if (dunno != i_status) return i_status;
+  i_interface = mmc_get_interface(p_cdio);
+  if (i_interface == CDIO_MMC_FEATURE_INTERFACE_ATAPI)
+    return yep;
+  if (i_interface != CDIO_MMC_FEATURE_INTERFACE_UNSPECIFIED)
+    return nope;
 
   {
     /* cdparanoia seems to think that if we have a mode sense command

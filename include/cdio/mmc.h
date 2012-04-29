@@ -409,7 +409,11 @@ typedef enum {
   CDIO_MMC_FEATURE_INTERFACE_ATAPI       = 2,
   CDIO_MMC_FEATURE_INTERFACE_IEEE_1394   = 3,
   CDIO_MMC_FEATURE_INTERFACE_IEEE_1394A  = 4,
-  CDIO_MMC_FEATURE_INTERFACE_FIBRE_CH    = 5
+  CDIO_MMC_FEATURE_INTERFACE_FIBRE_CH    = 5,
+  CDIO_MMC_FEATURE_INTERFACE_IEEE_1394B  = 6,
+  CDIO_MMC_FEATURE_INTERFACE_SATA        = 7,
+  CDIO_MMC_FEATURE_INTERFACE_USB         = 8,
+  CDIO_MMC_FEATURE_INTERFACE_VENDOR_UNIQ = 0xFFFF
 } cdio_mmc_feature_interface_t;
   
 
@@ -660,15 +664,18 @@ driver_return_code_t mmc_audio_get_volume (CdIo_t *p_cdio,  /*out*/
   char * mmc_get_mcn(const CdIo_t *p_cdio);
   
   /**
-    Report if CD-ROM has a particular kind of interface (ATAPI, SCSCI, ...)
-    Is it possible for an interface to have several? If not this 
-    routine could probably return the single mmc_feature_interface_t.
+    Return interface of device.
+    As per MMC6, Table 94, Note 7, in the case of a two-interface
+    scheme (USB-ATAPI bridge) the drive may not be aware, so only
+    ATAPI is returned.
+    Also it seems there is no way for the drive to return more than
+    one interface at all.
+    On MMC1 devices, where it is not specified, we will return
+    interface as CDIO_MMC_FEATURE_INTERFACE_UNSPECIFIED.
     @param p_cdio the CD object to be acted upon.
-    @param e_interface 
-    @return true if we have the interface and false if not.
+    @return interface of the device.
   */
-  bool_3way_t mmc_have_interface(CdIo_t *p_cdio, 
-                                 cdio_mmc_feature_interface_t e_interface );
+  cdio_mmc_feature_interface_t mmc_get_interface(CdIo_t *p_cdio);
   
 
   /**

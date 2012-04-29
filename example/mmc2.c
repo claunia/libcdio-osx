@@ -188,7 +188,7 @@ main(int argc, const char *argv[])
     }
   }
   
-  if (mmc_have_interface(p_cdio, CDIO_MMC_FEATURE_INTERFACE_ATAPI)) 
+  if (mmc_get_interface(p_cdio) == CDIO_MMC_FEATURE_INTERFACE_ATAPI) 
     printf("CD-ROM is an ATAPI interface.\n");
   else 
     printf("CD-ROM is not an ATAPI interface.\n");
