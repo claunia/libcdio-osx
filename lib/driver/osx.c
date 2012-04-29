@@ -1768,6 +1768,12 @@ cdio_get_devices_osx(void)
       
       do
         {
+          /* Skip other removable media, like USB flash memory keys:  */
+          if (!IOObjectConformsTo(next_media, kIODVDMediaClass) &&
+              !IOObjectConformsTo(next_media, kIOCDMediaClass) &&
+              !IOObjectConformsTo(next_media, kIOBDMediaClass))
+            continue;
+
           str_bsd_path = 
             IORegistryEntryCreateCFProperty( next_media,
                                              CFSTR( kIOBSDNameKey ),
