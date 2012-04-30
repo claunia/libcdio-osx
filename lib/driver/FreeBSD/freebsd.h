@@ -25,11 +25,8 @@
 # include "config.h"
 #endif
 
-#ifdef HAVE_STDBOOL_H
-# include <stdbool.h>
-#endif 
-
 #include <cdio/sector.h>
+#include <cdio/types.h>
 #include "cdio_assert.h"
 #include "cdio_private.h"
 

@@ -104,24 +104,15 @@ typedef uint8_t ubyte;
 #endif
   
 #ifndef __cplusplus
-
-/* All the stdbool.h seem to define those */
-#ifndef __bool_true_false_are_defined
-#define __bool_true_false_are_defined 1
-
-#undef bool
-#undef true
-#undef false
-
-#ifdef _Bool
-#define bool _Bool
-#else
-#define bool int
-#endif
-#define true 1
-#define false 0
-
-#endif /* __bool_true_false_are_defined */
+# if defined(HAVE_STDBOOL_H)
+#  include <stdbool.h>
+# else
+   /* ISO/IEC 9899:1999 <stdbool.h> missing -- enabling workaround */
+  
+#   define false   0
+#   define true    1
+#   define bool uint8_t
+# endif /*HAVE_STDBOOL_H*/
 #endif /*C++*/
   
   /* some GCC optimizations -- gcc 2.5+ */

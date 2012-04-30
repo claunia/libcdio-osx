@@ -20,10 +20,6 @@
 # include "config.h"
 #endif
 
-#ifdef HAVE_STDBOOL_H
-# include <stdbool.h>
-#endif 
-
 #ifdef HAVE_STRING_H
 #include <string.h>
 #endif
@@ -31,6 +27,7 @@
 #include <cdio/logging.h>
 #include <cdio/sector.h>
 #include <cdio/util.h>
+#include <cdio/types.h>
 #include <cdio/mmc.h>
 #include "cdio_assert.h"
 #include "cdio_private.h"

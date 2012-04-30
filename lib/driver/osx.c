@@ -32,13 +32,10 @@
 # include "config.h"
 #endif
 
-#ifdef HAVE_STDBOOL_H
-# include <stdbool.h>
-#endif 
-
 #include <cdio/logging.h>
 #include <cdio/sector.h>
 #include <cdio/util.h>
+#include <cdio/types.h>
 
 /* For SCSI TR_* enumerations */
 typedef enum {
