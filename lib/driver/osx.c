@@ -117,14 +117,14 @@ typedef enum {
 #endif
 
 // Define to get verbose debug output in stdout
-//#define DEBUG_OSX 1
+//#define CDIO_DEBUG_OSX 1
 
 // Carbon.h is defining DPRINTF, but in an incompatible way
 #ifdef DPRINTF
 #undef DPRINTF
 #endif
 
-#ifdef DEBUG_OSX
+#ifdef CDIO_DEBUG_OSX
 #define DPRINTF(fmt, ...) \
 do { printf("osx-driver: " fmt , ## __VA_ARGS__); } while (0)
 #else
