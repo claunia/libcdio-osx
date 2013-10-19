@@ -31,7 +31,11 @@
  */
 #define CDIO_API_VERSION 6
 
-#include <cdio/version.h>
+#if defined (_MSC_VER) || defined (_XBOX)
+	#include <cdio/msvc/version.h>
+#else
+	#include <cdio/version.h>
+#endif
 #include <cdio/types.h>
 #include <cdio/sector.h>
 

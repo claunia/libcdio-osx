@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E465056A-C6F3-45EE-B791-CAF8E0CE629D}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>11.0.51106.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>Debug\</OutDir>
+    <IntDir>Debug\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>Release\</OutDir>
+    <IntDir>Release\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\MSVC;..\include;..\lib\driver;..\lib\driver\MSWindows;..\lib\driver\mmc;..\lib\driver\image;..\lib\driver\FreeBSD;..\lib\iso9660;..\lib\udf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;HAVE_CONFIG_H;HAVE_WINDOWS_H;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName)d.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\MSVC;..\include;..\lib\driver;..\lib\driver\MSWindows;..\lib\driver\mmc;..\lib\driver\image;..\lib\driver\FreeBSD;..\lib\iso9660;..\lib\udf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;HAVE_CONFIG_H;HAVE_WINDOWS_H;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName)d.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\MSVC;..\include;..\lib\driver;..\lib\driver\MSWindows;..\lib\driver\mmc;..\lib\driver\image;..\lib\driver\FreeBSD;..\lib\iso9660;..\lib\udf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;HAVE_CONFIG_H;HAVE_WINDOWS_H;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\MSVC;..\include;..\lib\driver;..\lib\driver\MSWindows;..\lib\driver\mmc;..\lib\driver\image;..\lib\driver\FreeBSD;..\lib\iso9660;..\lib\udf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;HAVE_CONFIG_H;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\lib\driver\MSWindows\aspi32.c" />
+    <ClCompile Include="..\lib\driver\_cdio_generic.c" />
+    <ClCompile Include="..\lib\driver\_cdio_stdio.c" />
+    <ClCompile Include="..\lib\driver\_cdio_stream.c" />
+    <ClCompile Include="..\lib\driver\abs_path.c" />
+    <ClCompile Include="..\lib\driver\aix.c" />
+    <ClCompile Include="..\lib\driver\audio.c" />
+    <ClCompile Include="..\lib\driver\bsdi.c" />
+    <ClCompile Include="..\lib\driver\cd_types.c" />
+    <ClCompile Include="..\lib\driver\cdio.c" />
+    <ClCompile Include="..\lib\driver\cdtext.c" />
+    <ClCompile Include="..\lib\driver\device.c" />
+    <ClCompile Include="..\lib\driver\disc.c" />
+    <ClCompile Include="..\lib\driver\ds.c" />
+    <ClCompile Include="..\lib\driver\gnu_linux.c" />
+    <ClCompile Include="..\lib\driver\image_common.c" />
+    <ClCompile Include="..\lib\driver\logging.c" />
+    <ClCompile Include="..\lib\driver\netbsd.c" />
+    <ClCompile Include="..\lib\driver\os2.c" />
+    <ClCompile Include="..\lib\driver\osx.c" />
+    <ClCompile Include="..\lib\driver\read.c" />
+    <ClCompile Include="..\lib\driver\realpath.c" />
+    <ClCompile Include="..\lib\driver\sector.c" />
+    <ClCompile Include="..\lib\driver\solaris.c" />
+    <ClCompile Include="..\lib\driver\track.c" />
+    <ClCompile Include="..\lib\driver\utf8.c" />
+    <ClCompile Include="..\lib\driver\util.c" />
+    <ClCompile Include="..\lib\driver\FreeBSD\freebsd.c" />
+    <ClCompile Include="..\lib\driver\FreeBSD\freebsd_cam.c" />
+    <ClCompile Include="..\lib\driver\FreeBSD\freebsd_ioctl.c" />
+    <ClCompile Include="..\lib\driver\image\bincue.c" />
+    <ClCompile Include="..\lib\driver\image\cdrdao.c" />
+    <ClCompile Include="..\lib\driver\image\nrg.c" />
+    <ClCompile Include="..\lib\driver\mmc\mmc.c" />
+    <ClCompile Include="..\lib\driver\mmc\mmc_hl_cmds.c" />
+    <ClCompile Include="..\lib\driver\mmc\mmc_ll_cmds.c" />
+    <ClCompile Include="..\lib\driver\mmc\mmc_util.c" />
+    <ClCompile Include="..\lib\driver\MSWindows\win32.c" />
+    <ClCompile Include="..\lib\driver\MSWindows\win32_ioctl.c" />
+    <ClCompile Include="..\lib\iso9660\iso9660.c" />
+    <ClCompile Include="..\lib\iso9660\iso9660_fs.c" />
+    <ClCompile Include="..\lib\iso9660\rock.c" />
+    <ClCompile Include="..\lib\iso9660\xa.c" />
+    <ClInclude Include="..\lib\driver\filemode.h" />
+    <ClInclude Include="..\lib\udf\filemode.c" />
+    <ClInclude Include="..\lib\udf\udf.c" />
+    <ClInclude Include="..\lib\udf\udf_file.c" />
+    <ClInclude Include="..\lib\udf\udf_fs.c" />
+    <ClInclude Include="..\lib\udf\udf_time.c" />
+    <ClInclude Include="config.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\lib\driver\_cdio_stdio.h" />
+    <ClInclude Include="..\lib\driver\_cdio_stream.h" />
+    <ClInclude Include="..\lib\driver\cdio_assert.h" />
+    <ClInclude Include="..\lib\driver\cdio_private.h" />
+    <ClInclude Include="..\lib\driver\cdtext_private.h" />
+    <ClInclude Include="..\lib\driver\generic.h" />
+    <ClInclude Include="..\lib\driver\image.h" />
+    <ClInclude Include="..\lib\driver\image_common.h" />
+    <ClInclude Include="..\lib\driver\portable.h" />
+    <ClInclude Include="..\lib\driver\FreeBSD\freebsd.h" />
+    <ClInclude Include="..\lib\driver\image\nrg.h" />
+    <ClInclude Include="..\lib\driver\mmc\mmc_cmd_helper.h" />
+    <ClInclude Include="..\lib\driver\mmc\mmc_private.h" />
+    <ClInclude Include="..\lib\driver\MSWindows\aspi32.h" />
+    <ClInclude Include="..\lib\driver\MSWindows\win32.h" />
+    <ClInclude Include="..\lib\iso9660\iso9660_private.h" />
+    <ClInclude Include="..\lib\udf\udf_fs.h" />
+    <ClInclude Include="..\lib\udf\udf_private.h" />
+    <ClInclude Include="..\include\cdio\audio.h" />
+    <ClInclude Include="..\include\cdio\bytesex.h" />
+    <ClInclude Include="..\include\cdio\bytesex_asm.h" />
+    <ClInclude Include="..\include\cdio\cd_types.h" />
+    <ClInclude Include="..\include\cdio\cdio.h" />
+    <ClInclude Include="..\include\cdio\cdtext.h" />
+    <ClInclude Include="..\include\cdio\device.h" />
+    <ClInclude Include="..\include\cdio\disc.h" />
+    <ClInclude Include="..\include\cdio\ds.h" />
+    <ClInclude Include="..\include\cdio\dvd.h" />
+    <ClInclude Include="..\include\cdio\ecma_167.h" />
+    <ClInclude Include="..\include\cdio\iso9660.h" />
+    <ClInclude Include="..\include\cdio\logging.h" />
+    <ClInclude Include="..\include\cdio\mmc.h" />
+    <ClInclude Include="..\include\cdio\mmc_cmds.h" />
+    <ClInclude Include="..\include\cdio\mmc_hl_cmds.h" />
+    <ClInclude Include="..\include\cdio\mmc_ll_cmds.h" />
+    <ClInclude Include="..\include\cdio\mmc_util.h" />
+    <ClInclude Include="..\include\cdio\posix.h" />
+    <ClInclude Include="..\include\cdio\read.h" />
+    <ClInclude Include="..\include\cdio\rock.h" />
+    <ClInclude Include="..\include\cdio\scsi_mmc.h" />
+    <ClInclude Include="..\include\cdio\sector.h" />
+    <ClInclude Include="..\include\cdio\track.h" />
+    <ClInclude Include="..\include\cdio\types.h" />
+    <ClInclude Include="..\include\cdio\udf.h" />
+    <ClInclude Include="..\include\cdio\udf_file.h" />
+    <ClInclude Include="..\include\cdio\udf_time.h" />
+    <ClInclude Include="..\include\cdio\utf8.h" />
+    <ClInclude Include="..\include\cdio\util.h" />
+    <ClInclude Include="..\include\cdio\msvc\version.h" />
+    <ClInclude Include="..\include\cdio\xa.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

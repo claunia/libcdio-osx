@@ -1,0 +1,9 @@
+# Visual Studio files
+x64
+cd-info
+_UpgradeReport_Files
+Backup
+*.user
+UpgradeLog.*
+*.sdf
+*.suo
