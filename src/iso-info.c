@@ -21,11 +21,19 @@
 #include "util.h"
 #undef err_exit
 
+#ifdef _MSC_VER
+#define err_exit(fmt, args, ...)			    \
+  report (stderr, "%s: "fmt, program_name, ##args); \
+  iso9660_close(p_iso);				    \
+  free(program_name);				    \
+  return(EXIT_FAILURE);
+#else
 #define err_exit(fmt, args...)			    \
   report (stderr, "%s: "fmt, program_name, ##args); \
   iso9660_close(p_iso);				    \
   free(program_name);				    \
   return(EXIT_FAILURE);
+#endif
 
 #ifdef HAVE_CONFIG_H
 # include "config.h"
