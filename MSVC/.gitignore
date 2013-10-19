@@ -7,3 +7,5 @@ Backup
 UpgradeLog.*
 *.sdf
 *.suo
+[Rr]elease
+[Dd]ebug

@@ -37,7 +37,7 @@
 #define HAVE_ERRNO_H 1
 
 /* Define to 1 if you have the <fcntl.h> header file. */
-#undef HAVE_FCNTL_H
+#define HAVE_FCNTL_H 1
 
 /* Define 1 if you have FreeBSD CD-ROM support */
 #undef HAVE_FREEBSD_CDROM
@@ -49,7 +49,7 @@
 #undef HAVE_ICONV
 
 /* Define to 1 if you have the <inttypes.h> header file. */
-#define HAVE_INTTYPES_H 1
+#undef HAVE_INTTYPES_H
 
 /* Define to 1 if you have the <IOKit/IOKitLib.h> header file. */
 #undef HAVE_IOKIT_IOKITLIB_H
@@ -92,7 +92,7 @@
 #define HAVE_MEMSET 1
 
 /* Define to 1 if you have the `snprintf' function. */
-#undef HAVE_SNPRINTF
+#define HAVE_SNPRINTF 1
 
 /* Define 1 if you have Solaris CD-ROM support */
 #undef HAVE_SOLARIS_CDROM
@@ -119,7 +119,7 @@
 #undef HAVE_SYS_CDIO_H
 
 /* Define to 1 if you have the <sys/stat.h> header file. */
-#undef HAVE_SYS_STAT_H
+#define HAVE_SYS_STAT_H 1
 
 /* Define to 1 if you have the <sys/types.h> header file. */
 #define HAVE_SYS_TYPES_H 1
@@ -140,10 +140,17 @@
 #undef HAVE_VCDINFO
 
 /* Define to 1 if you have the `vsnprintf' function. */
-#undef HAVE_VSNPRINTF
+#define HAVE_VSNPRINTF 1
 
 /* Define 1 if you have MinGW CD-ROM support */
 #define HAVE_WIN32_CDROM 1
+
+/* Define 1 if you have Windows SDK */
+#define HAVE_WINDOWS_H 1
+
+/* Windows SDK includes seek64 */
+#define HAVE_LSEEK64 1
+#define _FILE_OFFSET_BITS 64
 
 /* Define as const if the declaration of iconv() needs const. */
 #undef ICONV_CONST 

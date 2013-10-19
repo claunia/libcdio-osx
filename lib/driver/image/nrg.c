@@ -2,6 +2,7 @@
   Copyright (C) 2003, 2004, 2005, 2006, 2008, 2009, 2011, 2012
   Rocky Bernstein <rocky@gnu.org>
   Copyright (C) 2001, 2003 Herbert Valerio Riedel <hvr@gnu.org>
+  Copyright (C) 2013 Natalia Portillo <claunia@claunia.com>
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -42,7 +43,11 @@
 #include <cdio/ds.h>
 #include <cdio/logging.h>
 #include <cdio/util.h>
+#if defined (_MSC_VER) || defined (_XBOX)
+#include <cdio/msvc/version.h>
+#else
 #include <cdio/version.h>
+#endif
 #include "cdio_assert.h"
 #include "_cdio_stdio.h"
 #include "nrg.h"

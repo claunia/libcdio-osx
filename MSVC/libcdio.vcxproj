@@ -75,7 +75,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\MSVC;..\include;..\lib\driver;..\lib\driver\MSWindows;..\lib\driver\mmc;..\lib\driver\image;..\lib\driver\FreeBSD;..\lib\iso9660;..\lib\udf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include\cdio\msvc;..\MSVC;..\include;..\lib\driver;..\lib\driver\MSWindows;..\lib\driver\mmc;..\lib\driver\image;..\lib\driver\FreeBSD;..\lib\iso9660;..\lib\udf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;HAVE_CONFIG_H;HAVE_WINDOWS_H;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -91,7 +91,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\MSVC;..\include;..\lib\driver;..\lib\driver\MSWindows;..\lib\driver\mmc;..\lib\driver\image;..\lib\driver\FreeBSD;..\lib\iso9660;..\lib\udf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include\cdio\msvc;..\MSVC;..\include;..\lib\driver;..\lib\driver\MSWindows;..\lib\driver\mmc;..\lib\driver\image;..\lib\driver\FreeBSD;..\lib\iso9660;..\lib\udf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;HAVE_CONFIG_H;HAVE_WINDOWS_H;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -106,7 +106,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\MSVC;..\include;..\lib\driver;..\lib\driver\MSWindows;..\lib\driver\mmc;..\lib\driver\image;..\lib\driver\FreeBSD;..\lib\iso9660;..\lib\udf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include\cdio\msvc;..\MSVC;..\include;..\lib\driver;..\lib\driver\MSWindows;..\lib\driver\mmc;..\lib\driver\image;..\lib\driver\FreeBSD;..\lib\iso9660;..\lib\udf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;HAVE_CONFIG_H;HAVE_WINDOWS_H;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader />
@@ -116,7 +116,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\MSVC;..\include;..\lib\driver;..\lib\driver\MSWindows;..\lib\driver\mmc;..\lib\driver\image;..\lib\driver\FreeBSD;..\lib\iso9660;..\lib\udf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include\cdio\msvc;..\MSVC;..\include;..\lib\driver;..\lib\driver\MSWindows;..\lib\driver\mmc;..\lib\driver\image;..\lib\driver\FreeBSD;..\lib\iso9660;..\lib\udf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;HAVE_CONFIG_H;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader>
@@ -169,6 +169,7 @@
     <ClCompile Include="..\lib\iso9660\iso9660_fs.c" />
     <ClCompile Include="..\lib\iso9660\rock.c" />
     <ClCompile Include="..\lib\iso9660\xa.c" />
+    <ClInclude Include="..\include\cdio\msvc\unistd.h" />
     <ClInclude Include="..\lib\driver\filemode.h" />
     <ClInclude Include="..\lib\udf\filemode.c" />
     <ClInclude Include="..\lib\udf\udf.c" />

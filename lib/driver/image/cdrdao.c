@@ -3,6 +3,7 @@
   Rocky Bernstein <rocky@gnu.org>
     toc reading routine adapted from cuetools
   Copyright (C) 2003 Svend Sanjay Sorensen <ssorensen@fastmail.fm>
+  Copyright (C) 2013 Natalia Portillo <claunia@claunia.com>
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -58,7 +59,11 @@
 #include <cdio/util.h>
 #include <stdio.h>
 #include <cdio/utf8.h>
+#if defined (_MSC_VER) || defined (_XBOX)
+#include <cdio/msvc/version.h>
+#else
 #include <cdio/version.h>
+#endif
 
 #include "image.h"
 #include "cdio_assert.h"

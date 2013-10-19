@@ -1,6 +1,7 @@
 /*
   Copyright (C) 2004, 2005, 2008, 2010, 2011, 2012
   Rocky Bernstein <rocky@gnu.org>
+  Copyright (C) 2013 Natalia Portillo <claunia@claunia.com>
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -26,6 +27,13 @@
 
 #ifdef HAVE_WIN32_CDROM
 
+/* Windows 8 WDK says this is needed for user mode applications */
+#define _NTSCSI_USER_MODE_ 1
+
+#ifdef _MSC_VER
+# define __PRETTY_FUNCTION__ __FUNCSIG__
+#endif
+
 #if defined (_XBOX)
 # include "inttypes.h"
 # include "NtScsi.h"
@@ -33,18 +41,11 @@
 #else
 #if defined (__MINGW64__)
 # define _NTSRB_ /* Bad things happen if srb.h gets included */
-# include <windows.h>
-# include <ntddcdrm.h>
-# include <ntddscsi.h>
-#else
-# include <ddk/ntddcdrm.h>
-# include <ddk/ntddscsi.h>
 #endif
-# include <ddk/scsi.h>
-#endif
-
-#if defined (_WIN32)
 #include <windows.h>
+#include <ntddcdrm.h>
+#include <ntddscsi.h>
+#include <scsi.h>
 #endif
 
 #include <stdio.h>
@@ -59,6 +60,8 @@
 #include "cdio_assert.h"
 #include <cdio/mmc.h>
 #include "cdio/logging.h"
+
+#define snprintf _snprintf; // Windows prepends with underscore.
 
 #if defined (_XBOX)
 #define windows_error(loglevel,i_err) {                    \
@@ -161,6 +164,7 @@ audio_play_msf_win32ioctl (void *p_user_data, msf_t *p_start_msf,
   const _img_private_t *p_env = p_user_data;
   CDROM_PLAY_AUDIO_MSF play;
   DWORD dw_bytes_returned;
+  BOOL b_success;
 
   play.StartingM = cdio_from_bcd8(p_start_msf->m);
   play.StartingS = cdio_from_bcd8(p_start_msf->s);
@@ -170,7 +174,7 @@ audio_play_msf_win32ioctl (void *p_user_data, msf_t *p_start_msf,
   play.EndingS   = cdio_from_bcd8(p_end_msf->s);
   play.EndingF   = cdio_from_bcd8(p_end_msf->f);
 
-  bool b_success = 
+  b_success = 
     DeviceIoControl(p_env->h_device_handle, IOCTL_CDROM_PLAY_AUDIO_MSF,
                     &play, sizeof(play), NULL, 0, &dw_bytes_returned, NULL);
   

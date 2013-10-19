@@ -2,6 +2,7 @@
   Copyright (C) 2003, 2004, 2005, 2008, 2009, 2010, 2011
   Rocky Bernstein <rocky@gnu.org>
   Copyright (C) 2000 Herbert Valerio Riedel <hvr@gnu.org>
+  Copyright (C) 2013 Natalia Portillo <claunia@claunia.com>
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -43,7 +44,11 @@
 #include "cdio_assert.h"
 #include <cdio/types.h>
 #include <cdio/util.h>
+#if defined (_MSC_VER) || defined (_XBOX)
+#include <cdio/msvc/version.h>
+#else
 #include <cdio/version.h>
+#endif
 
 size_t
 _cdio_strlenv(char **str_array)

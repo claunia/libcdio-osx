@@ -145,9 +145,6 @@
     <ClCompile Include="..\lib\driver\netbsd.c">
       <Filter>Source Files\driver</Filter>
     </ClCompile>
-    <ClCompile Include="..\lib\driver\image\nrg.c">
-      <Filter>Source Files\driver</Filter>
-    </ClCompile>
     <ClCompile Include="..\lib\driver\os2.c">
       <Filter>Source Files\driver</Filter>
     </ClCompile>
@@ -189,6 +186,9 @@
     </ClCompile>
     <ClCompile Include="..\lib\driver\MSWindows\aspi32.c">
       <Filter>Source Files\driver\MSWindows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\driver\image\nrg.c">
+      <Filter>Source Files\driver\image</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -361,6 +361,9 @@
       <Filter>Include Files\lib\udf</Filter>
     </ClInclude>
     <ClInclude Include="config.h">
+      <Filter>Include Files\cdio\msvc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\cdio\msvc\unistd.h">
       <Filter>Include Files\cdio\msvc</Filter>
     </ClInclude>
   </ItemGroup>
