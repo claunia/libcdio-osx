@@ -61,8 +61,6 @@
 #include <cdio/mmc.h>
 #include "cdio/logging.h"
 
-#define snprintf _snprintf; // Windows prepends with underscore.
-
 #if defined (_XBOX)
 #define windows_error(loglevel,i_err) {                    \
    cdio_log(loglevel, "Error: file %s: line %d (%s) %ld\n", \

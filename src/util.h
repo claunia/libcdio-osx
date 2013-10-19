@@ -84,18 +84,34 @@
 # define EXIT_INFO 100
 #endif
 
-#define DEBUG 1
-#if DEBUG
-#define dbg_print(level, s, args...) \
-   if (opts.debug_level >= level) \
-     report(stderr, "%s: "s, __func__ , ##args)
+//# define DEBUG 1
+#ifdef _MSC_VER
+# if DEBUG
+#  define dbg_print(level, s, args, ...) \
+     if (opts.debug_level >= level) \
+       report(stderr, "%s: "s, __func__ , ##args)
+# else
+#  define dbg_print(level, s, args, ...) 
+# endif
 #else
-#define dbg_print(level, s, args...) 
+# if DEBUG
+#  define dbg_print(level, s, args...) \
+     if (opts.debug_level >= level) \
+       report(stderr, "%s: "s, __func__ , ##args)
+# else
+#  define dbg_print(level, s, args...) 
+# endif
 #endif
 
-#define err_exit(fmt, args...) \
+#ifdef _MSC_VER
+#define err_exit(fmt, args, ...) \
   report(stderr, "%s: "fmt, program_name, ##args); \
-  myexit(p_cdio, EXIT_FAILURE)		     
+  myexit(p_cdio, EXIT_FAILURE)	
+#else
+# define err_exit(fmt, args...) \
+   report(stderr, "%s: "fmt, program_name, ##args); \
+   myexit(p_cdio, EXIT_FAILURE)	
+#endif
   
 typedef enum
 {

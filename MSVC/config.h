@@ -59,7 +59,7 @@
 
 /* Define 1 if you want ISO-9660 Joliet extension support. You must have also
    libiconv installed to get Joliet extension support. */
-#undef HAVE_JOLIET
+#define HAVE_JOLIET 1
 
 /* Define if you have <langinfo.h> and nl_langinfo(CODESET). */
 #undef HAVE_LANGINFO_CODESET
@@ -92,7 +92,12 @@
 #define HAVE_MEMSET 1
 
 /* Define to 1 if you have the `snprintf' function. */
-#define HAVE_SNPRINTF 1
+#if !defined(HAVE_SNPRINTF)
+# if defined (_MSC_VER)
+#  define HAVE_SNPRINTF 1
+#  define snprintf _snprintf
+# endif
+#endif /*HAVE_SNPRINTF*/
 
 /* Define 1 if you have Solaris CD-ROM support */
 #undef HAVE_SOLARIS_CDROM
@@ -140,7 +145,12 @@
 #undef HAVE_VCDINFO
 
 /* Define to 1 if you have the `vsnprintf' function. */
-#define HAVE_VSNPRINTF 1
+#if !defined(HAVE_VSNPRINTF)
+# if defined (_MSC_VER)
+#  define vsnprintf _vsnprintf
+#  define HAVE_VSNPRINTF 1
+# endif
+#endif /*HAVE_SNPRINTF*/
 
 /* Define 1 if you have MinGW CD-ROM support */
 #define HAVE_WIN32_CDROM 1
@@ -150,6 +160,8 @@
 
 /* Windows SDK includes seek64 */
 #define HAVE_LSEEK64 1
+/* And names it differently */
+#define lseek64 _lseeki64
 #define _FILE_OFFSET_BITS 64
 
 /* Define as const if the declaration of iconv() needs const. */

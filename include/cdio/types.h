@@ -54,8 +54,9 @@ typedef uint8_t ubyte;
    to compensate for missing UNIX types is to include a custom
    unistd.h that defines them. Such a file is provided with
    the libcdio source, in the MSVC/missing directory */
+// Natalia Portillo: the missing directory does not appear in the whole git history, I recreated it.
 #if defined(_MSC_VER)
-#include <unistd.h>
+#include <cdio/msvc/unistd.h>
 #endif
 
   /* default HP/UX macros are broken */
